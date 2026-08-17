@@ -1,26 +1,27 @@
 <div class="feed-card">
   <div class="page-header">{{ pageTitle }}</div>
 
-  @if (loading) {
+  @if (loading()) {
     <div class="state-message">Loading post…</div>
-  } @else if (error || !post) {
+  } @else if (error() || !post()) {
     <div class="state-message state-error">Couldn't load this post. Please try again later.</div>
   } @else {
+    @let p = post()!;
     <div class="post-block">
       <div class="post-author-row">
-        <div class="avatar">{{ post.authorInitial }}</div>
+        <div class="avatar">{{ p.authorInitial }}</div>
         <div class="post-author-meta">
-          <div class="author-name">{{ post.authorName }}</div>
-          <div class="post-date">{{ post.createdAt | date: 'd MMMM y HH:mm' }}</div>
+          <div class="author-name">{{ p.authorName }}</div>
+          <div class="post-date">{{ p.createdAt | date: 'd MMMM y HH:mm' }}</div>
         </div>
       </div>
 
-      @if (post.content) {
-        <p class="post-content">{{ post.content }}</p>
+      @if (p.content) {
+        <p class="post-content">{{ p.content }}</p>
       }
 
-      @if (post.imageUrl) {
-        <img class="post-image" [src]="post.imageUrl" alt="" />
+      @if (p.imageUrl) {
+        <img class="post-image" [src]="p.imageUrl" alt="" />
       }
     </div>
 
@@ -28,11 +29,11 @@
       <app-comment-input
         [authorName]="currentUserName"
         [authorInitial]="currentUserInitial"
-        [submitting]="submitting"
+        [submitting]="submitting()"
         (submitted)="onSubmitComment($event)"
       />
 
-      @for (comment of post.comments; track comment.id) {
+      @for (comment of p.comments; track comment.id) {
         <app-comment-item [comment]="comment" />
       }
     </div>

@@ -23,7 +23,7 @@ public class PostServiceTests
         {
             Id = 1,
             AuthorName = "Change can",
-            ImageUrl = "https://images.example.com/posts/puppy-and-kitten.jpg",
+            ImageUrl = "https://i.pinimg.com/1200x/58/b8/94/58b894d8c2f1bfd5056362933f9bb056.jpg",
             CreatedAt = new DateTime(2021, 10, 16, 16, 0, 0),
             Comments = new List<Comment>
             {

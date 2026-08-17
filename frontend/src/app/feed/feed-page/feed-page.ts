@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { Post } from '../../core/models/post.model';
 import { CommentService } from '../../core/services/comment.service';
 import { PostService } from '../../core/services/post.service';
@@ -24,10 +24,10 @@ export class FeedPage implements OnInit {
   private readonly postService = inject(PostService);
   private readonly commentService = inject(CommentService);
 
-  post: Post | null = null;
-  loading = true;
-  error = false;
-  submitting = false;
+  readonly post = signal<Post | null>(null);
+  readonly loading = signal(true);
+  readonly error = signal(false);
+  readonly submitting = signal(false);
 
   readonly currentUserName = CURRENT_USER_NAME;
   readonly currentUserInitial = CURRENT_USER_INITIAL;
@@ -37,32 +37,33 @@ export class FeedPage implements OnInit {
   }
 
   private loadPost(): void {
-    this.loading = true;
-    this.error = false;
+    this.loading.set(true);
+    this.error.set(false);
     this.postService.getPost(this.postId).subscribe({
       next: (post) => {
-        this.post = post;
-        this.loading = false;
+        this.post.set(post);
+        this.loading.set(false);
       },
       error: () => {
-        this.loading = false;
-        this.error = true;
+        this.loading.set(false);
+        this.error.set(true);
       },
     });
   }
 
   onSubmitComment(text: string): void {
-    if (!this.post) {
+    const post = this.post();
+    if (!post) {
       return;
     }
-    this.submitting = true;
-    this.commentService.addComment(this.post.id, text).subscribe({
+    this.submitting.set(true);
+    this.commentService.addComment(post.id, text).subscribe({
       next: (comment) => {
-        this.post!.comments = [comment, ...this.post!.comments];
-        this.submitting = false;
+        this.post.update((p) => (p ? { ...p, comments: [comment, ...p.comments] } : p));
+        this.submitting.set(false);
       },
       error: () => {
-        this.submitting = false;
+        this.submitting.set(false);
       },
     });
   }

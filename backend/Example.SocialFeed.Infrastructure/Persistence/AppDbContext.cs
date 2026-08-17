@@ -40,17 +40,17 @@ public class AppDbContext : DbContext
             Id = 1,
             AuthorName = "Change can",
             Content = null,
-            ImageUrl = "https://images.example.com/posts/puppy-and-kitten.jpg",
+            ImageUrl = "https://i.pinimg.com/1200x/58/b8/94/58b894d8c2f1bfd5056362933f9bb056.jpg",
             CreatedAt = new DateTime(2021, 10, 16, 16, 0, 0, DateTimeKind.Utc)
         });
 
-        modelBuilder.Entity<Comment>().HasData(new Comment
-        {
-            Id = 1,
-            PostId = 1,
-            AuthorName = "Blend 285",
-            Text = "have a good day",
-            CreatedAt = new DateTime(2021, 10, 16, 16, 5, 0, DateTimeKind.Utc)
-        });
+        // modelBuilder.Entity<Comment>().HasData(new Comment
+        // {
+        //     Id = 1,
+        //     PostId = 1,
+        //     AuthorName = "Blend 285",
+        //     Text = "have a good day",
+        //     CreatedAt = new DateTime(2021, 10, 16, 16, 5, 0, DateTimeKind.Utc)
+        // });
     }
 }
