@@ -16,7 +16,7 @@ cd frontend
 npm install
 ```
 
-If your backend runs on a different URL than `https://localhost:7000/api`,
+If your backend runs on a different URL than `http://localhost:7000/api`,
 update `API_BASE_URL` in `src/app/core/config.ts`.
 
 ## Run
