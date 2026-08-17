@@ -1,0 +1,19 @@
+# Backend (.NET)
+backend/**/bin/
+backend/**/obj/
+backend/**/*.user
+backend/**/*.db
+backend/**/*.db-shm
+backend/**/*.db-wal
+backend/Example.SocialFeed.Api/appsettings.Development.json
+
+# Frontend (Angular / Node)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/*.log
+
+# OS / editor
+.DS_Store
+.vs/
+.vscode/

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Example.SocialFeed.Api/Example.SocialFeed.Api.csproj" />
+  <Project Path="Example.SocialFeed.Application/Example.SocialFeed.Application.csproj" />
+  <Project Path="Example.SocialFeed.Domain/Example.SocialFeed.Domain.csproj" />
+  <Project Path="Example.SocialFeed.Infrastructure/Example.SocialFeed.Infrastructure.csproj" />
+  <Project Path="Example.SocialFeed.Tests/Example.SocialFeed.Tests.csproj" />
+</Solution>
