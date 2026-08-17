@@ -1,0 +1,14 @@
+<div class="comment-row">
+  <div class="avatar">{{ authorInitial }}</div>
+  <div class="comment-body">
+    <div class="author-name">{{ authorName }}</div>
+    <input
+      class="comment-box"
+      type="text"
+      placeholder="Comment"
+      [(ngModel)]="text"
+      (keyup.enter)="onEnter()"
+      [disabled]="submitting"
+    />
+  </div>
+</div>
