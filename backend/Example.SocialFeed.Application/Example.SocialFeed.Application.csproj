@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Example.SocialFeed.Domain\Example.SocialFeed.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Example.SocialFeed.Tests" />
+  </ItemGroup>
+
 </Project>
