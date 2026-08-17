@@ -27,7 +27,7 @@ describe('PostService', () => {
       authorName: 'Change can',
       authorInitial: 'C',
       content: null,
-      imageUrl: 'https://images.example.com/posts/puppy-and-kitten.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/58/b8/94/58b894d8c2f1bfd5056362933f9bb056.jpg',
       createdAt: '2021-10-16T16:00:00Z',
       comments: [],
     };

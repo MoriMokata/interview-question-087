@@ -12,7 +12,7 @@ describe('FeedPage', () => {
     authorName: 'Change can',
     authorInitial: 'C',
     content: null,
-    imageUrl: 'https://images.example.com/posts/puppy-and-kitten.jpg',
+    imageUrl: 'https://i.pinimg.com/1200x/58/b8/94/58b894d8c2f1bfd5056362933f9bb056.jpg',
     createdAt: '2021-10-16T16:00:00Z',
     comments: [
       {
@@ -73,7 +73,7 @@ describe('FeedPage', () => {
     fixture.componentInstance.onSubmitComment('nice photo');
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.post?.comments[0].text).toBe('nice photo');
-    expect(fixture.componentInstance.post?.comments.length).toBe(2);
+    expect(fixture.componentInstance.post()?.comments[0].text).toBe('nice photo');
+    expect(fixture.componentInstance.post()?.comments.length).toBe(2);
   });
 });
