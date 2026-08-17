@@ -1,59 +1,57 @@
-# ExampleSocialFeed
+# Frontend — Example Social Feed
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.6.
+Angular 21 (standalone components) app for the "IT 08-1" post & comments
+page. Renders a post, lets the current user ("Blend 285") type a comment and
+press Enter to submit it.
 
-## Development server
+## Prerequisites
 
-To start a local development server, run:
+- Node.js 22+ and npm
+- The backend API running (see `../backend/README.md`)
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Setup
 
 ```bash
-ng generate component component-name
+cd frontend
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+If your backend runs on a different URL than `https://localhost:7000/api`,
+update `API_BASE_URL` in `src/app/core/config.ts`.
+
+## Run
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Opens the dev server at `http://localhost:4200`.
 
-To build the project run:
+## Test
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Runs the Vitest-based unit tests (12 specs across services and components).
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Build
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+## Structure
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+src/app/
+├── core/
+│   ├── config.ts                 API base URL
+│   ├── models/                   Post, Comment interfaces
+│   └── services/                 PostService, CommentService (HttpClient)
+├── feed/
+│   ├── feed-page/                Page shell: header, post, comment list, input
+│   ├── comment-item/             Renders a single existing comment
+│   └── comment-input/            Text box, submits on Enter
+└── app.ts                        Root component, renders <app-feed-page>
+```
