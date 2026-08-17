@@ -44,13 +44,13 @@ public class AppDbContext : DbContext
             CreatedAt = new DateTime(2021, 10, 16, 16, 0, 0, DateTimeKind.Utc)
         });
 
-        modelBuilder.Entity<Comment>().HasData(new Comment
-        {
-            Id = 1,
-            PostId = 1,
-            AuthorName = "Blend 285",
-            Text = "have a good day",
-            CreatedAt = new DateTime(2021, 10, 16, 16, 5, 0, DateTimeKind.Utc)
-        });
+        // modelBuilder.Entity<Comment>().HasData(new Comment
+        // {
+        //     Id = 1,
+        //     PostId = 1,
+        //     AuthorName = "Blend 285",
+        //     Text = "have a good day",
+        //     CreatedAt = new DateTime(2021, 10, 16, 16, 5, 0, DateTimeKind.Utc)
+        // });
     }
 }
